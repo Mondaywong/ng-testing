@@ -1,5 +1,12 @@
-<div >
-      <input type="text" [(ngModel)]="name">
-  <p>Welcome, {{name}}</p>
-  
+<div>
+
+  <p *ngIf="status; else elselocker">Status is set to true</p>
+  <ng-template #elselocker>
+    <p>Status is set to false</p>
+  </ng-template>
+  <br>
+
+  <button (click)="toggleStatus()">Toggle Now</button>
+  <br>
+  <li *ngFor="let clicks of clicked" [ngStyle]="{color: getColor()}">{{clicks}}</li>
 </div>
